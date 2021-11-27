@@ -9,7 +9,7 @@ describe('Auth', function() {
     it('Successful log in', async function() {
         await expect(LoginPage.buttonSubmit)
             .toBeDisabled();
-        await LoginPage.login('test@example.com', 'Qwerty!23');
+        await LoginPage.login(process.env.LOGIN, process.env.PASSWORD);
         await expect(ProfilePage.iconUser)
             .toBeDisplayed();
     });
