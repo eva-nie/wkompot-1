@@ -9,7 +9,7 @@ describe('Auth', function() {
     it('Successful log in', async function() {
         await expect(LoginPage.buttonSubmit)
             .toBeDisabled();
-        await LoginPage.login('test@example.com', 'Qwerty!23');
+        await LoginPage.login(process.env.LOGIN, process.env.PASSWORD);
         await expect(ProfilePage.iconUser)
             .toBeDisplayed();
     });
@@ -20,7 +20,7 @@ describe('Auth', function() {
     });
 
     it('Log in attempt with invalid password', async function() {
-        await LoginPage.login('test@example.com', 'testinvalid');
+        await LoginPage.login(process.env.LOGIN, 'testinvalid');
         await expect(LoginPage.notification).toHaveText('Incorrect password');
     });
 
