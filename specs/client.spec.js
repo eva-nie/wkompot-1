@@ -24,8 +24,8 @@ describe('Client', function() {
         await expect(ClientsPage.getItemByEmail(email)).toBeDisplayed();
     });
 
-    it.skip('deletion', async function() {
-        await ClientsPage.deleteClient(email);
-        await expect(ClientsPage.getItemByEmail(email)).not.toBeExisting();
+    it('deletion', async function() {
+        await ClientsPage.deleteClient('johndoe@example.com');
+        await expect(ClientsPage.getItemByEmail('johndoe@example.com')).not.toBeExisting();
     });
 });
