@@ -25,7 +25,7 @@ describe('Client', function() {
     });
 
     it('deletion', async function() {
-        await ClientsPage.deleteClient('johndoe@example.com');
-        await expect(ClientsPage.getItemByEmail('johndoe@example.com')).not.toBeExisting();
+        await ClientsPage.deleteClient(email);
+        await expect(ClientsPage.getItemByEmail(email)).not.toBeExisting();
     });
 });
